@@ -13,6 +13,7 @@ abdullah.sahruri@gmail.com
 ---
 
 ## Summary
+
 <div style="text-align: justify; margin-bottom: 20px;">
   I am a PhD student in Computer Engineering at the University of Louisiana at Lafayette, where I work as a Graduate Research Assistant in analog and digital IC design. I have an MS in Electrical and Electronics Engineering from Yeditepe University, where I was an honor student and a Graduate Research Assistant.
   
