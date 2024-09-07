@@ -13,11 +13,11 @@ abdullah.sahruri@gmail.com
 
 ## Summary
 <div style="text-align: justify; margin-bottom: 20px;">
-  I am a PhD student in Computer Engineering at the University of Louisiana at Lafayette, where I work as a Graduate Research Assistant in the field of analog and digital IC design. I have an MS degree in Electrical and Electronics Engineering from Yeditepe University, where I was an honor student and a Graduate Research Assistant.
+  I am a PhD student in Computer Engineering at the University of Louisiana at Lafayette, where I work as a Graduate Research Assistant in analog and digital IC design. I have an MS in Electrical and Electronics Engineering from Yeditepe University, where I was an honor student and a Graduate Research Assistant.
   
   <br><br>
   
-  I have multiple skills and experiences in Field-Programmable Gate Arrays (FPGA), Verilog, AWR Microwave Office, and Analog/Digital IC projects for industrial applications. I am always looking for interesting work environments and new technologies, and I am interested in opportunities to expand my knowledge and experience of VLSI. My goal is to contribute to the advancement of nanoscale chip technology and to create innovative solutions for real-world problems.
+  I have multiple skills and experience in field-programmable gate arrays (FPGA), Verilog, AWR Microwave Office, and analog/digital IC projects for industrial applications. I am always looking for exciting work environments and new technologies, and I am interested in opportunities to expand my knowledge and experience of VLSI. My goal is to contribute to advancing nanoscale chip technology and create innovative solutions for real-world problems.
 </div>
 
 ---
@@ -34,18 +34,16 @@ Implementation • Principles of Programming Languages
 **Yeditepe University** – Istanbul, Turkey  
 **M.S. Electrical and Electronics Engineering (CGPA: 3.93)** – 2019 - 2022  
 Thesis: *High Fan-in Differential Capacitive-Threshold-Logic Implementation With an Offset-Compensated Comparator:*  
-Designed a novel high fan-in threshold logic gate for fast data-intensive computations, using capacitive feedback loops, MOSFET capacitors, and digital logic levels. Analyzed designs with 65nm CMOS technology.  
+Designed a novel high fan-in threshold logic gate for fast data-intensive computations using capacitive feedback loops, MOSFET capacitors, and digital logic levels. Analyzed designs with 65nm CMOS technology.  
 Academic advisor: Ugur Cilingiroglu  
-Relevant Coursework: Analog IC Design • RF Circuit Design • Advanced Electronics • Sensors •  
-Advanced Communication Systems • Advanced Control Systems • Advanced Robotic Systems  
+Relevant Coursework: Analog IC Design • RF Circuit Design • Advanced Electronics • Sensors • Advanced Communication Systems • Advanced Control Systems • Advanced Robotic Systems  
 
 **Yeditepe University** – Istanbul, Turkey  
 **B.S. Electrical and Electronics Engineering (CGPA: 3.25)** – 2014 - 2019  
 Graduation Project: *Lead-compensated Miller OTA as a unity-gain buffer amplifier using 90nm CMOS technology.*  
 Simulated in Cadence Virtuoso, achieving a phase margin of no less than 65º and a settling time of 34 ns.  
 Academic advisor: Ugur Cilingiroglu  
-Relevant Coursework: Analog IC Design • High Frequency Electronics • Physical Design Of IC •  
-Digital IC Design • Analog Electronic Circuits • Microprocessor Systems • Coding And Information Theory • Wireless Communication • Antennas and Propagation  
+Relevant Coursework: Analog IC Design • High-Frequency Electronics • Physical Design Of IC • Digital IC Design • Analog Electronic Circuits • Microprocessor Systems • Coding And Information Theory • Wireless Communication • Antennas and Propagation  
 
 ---
 
