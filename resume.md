@@ -4,8 +4,8 @@ title: "Resume"
 permalink: /resume/
 ---
 
-# Your Name's Resume
-Abdullah Sahruri
+# Abdullah Sahruri
+
 ## Summary
 Brief summary about your skills and career.
 
