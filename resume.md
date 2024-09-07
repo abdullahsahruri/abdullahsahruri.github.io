@@ -76,9 +76,9 @@ Cadence Virtuoso • SKILL • Liberate • Cadence AWR • SPICE • HSPICE •
 
 ### PUBLICATIONS  
 
-A. G. Ayar, A. Sahruri, S. Aygun, M. S. Moghadam, M. H. Najafi, M. Margala, "Detecting Vulnerability in Hardware Description Languages: Opcode Language Processing," IEEE Embedded Systems Letters, doi: 10.1109/LES.2023.3334728  
+A. G. Ayar, **A. Sahruri**, S. Aygun, M. S. Moghadam, M. H. Najafi, M. Margala, "Detecting Vulnerability in Hardware Description Languages: Opcode Language Processing," IEEE Embedded Systems Letters, doi: 10.1109/LES.2023.3334728  
 
-A. Sahruri, M. Margala, U. Cilingiroglu. "HiCTL: High Fan-in Differential Capacitive-Threshold-Logic Gate Implementation With An Offset-Compensated Comparator". *25th International Symposium on Quality Electronic Design (ISQED), San Francisco, CA, USA, 2024*. doi: 10.1109/ISQED60706.2024.10528704  
+**A. Sahruri**, M. Margala, U. Cilingiroglu. "HiCTL: High Fan-in Differential Capacitive-Threshold-Logic Gate Implementation With An Offset-Compensated Comparator". *25th International Symposium on Quality Electronic Design (ISQED), San Francisco, CA, USA, 2024*. doi: 10.1109/ISQED60706.2024.10528704  
 
 ---
 
