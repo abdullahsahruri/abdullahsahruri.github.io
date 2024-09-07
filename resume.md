@@ -10,7 +10,7 @@ permalink: /resume/
 Brief summary about your skills and career.
 
 ## Experience
-### Job Title - Company Name
+### Memory Circuit Design Intern - Broadcom
 **Austin, TX** – May 2024 - August 2024  
 Description of your responsibilities and accomplishments.
 
