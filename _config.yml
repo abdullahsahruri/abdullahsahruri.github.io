@@ -20,7 +20,9 @@ author: Abdullah Sahruri
 ###############################################
 
 navbar-links:
+  Home: "https://abdullahsahruri.github.io/"
   Resume: "https://abdullahsahruri.github.io/resume/"
+  Research: "https://abdullahsahruri.github.io/research/"
   Blog: "https://abdullahsahruri.github.io/blog/"
   #Resources:
      #- Resume: "https://abdullahsahruri.github.io/resume/"
