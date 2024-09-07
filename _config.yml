@@ -22,7 +22,7 @@ author: Abdullah Sahruri
 navbar-links:
   About Me: "aboutme"
   Resources:
-     - Resume: ""
+     - Resume: "https://abdullahsahruri.github.io/resume/"
      - Blog: ""
     #- Beautiful Jekyll: "https://beautifuljekyll.com"
     #- Learn markdown: "https://www.markdowntutorial.com/"
