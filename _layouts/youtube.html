@@ -1,0 +1,42 @@
+---
+layout: youtube
+---
+
+<div class="intro-header"></div>
+
+<main class="{% if page.full-width %} container-fluid {% else %} container-md {% endif %}">
+  {% if page.before-content %}
+    <div class="before-content">
+      {% for file in page.before-content %}
+        {% include {{ file }} %}
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {{ content }}
+
+  <section class="youtube-videos">
+    <h2>My YouTube Videos</h2>
+    <div class="video-gallery">
+      {% for video in page.videos %}
+        <div class="video-container">
+          <h3>{{ video.title }}</h3>
+          <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/{{ video.id }}" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  {% if page.after-content %}
+    <div class="after-content">
+      {% for file in page.after-content %}
+        {% include {{ file }} %}
+      {% endfor %}
+    </div>
+  {% endif %}
+</main>
