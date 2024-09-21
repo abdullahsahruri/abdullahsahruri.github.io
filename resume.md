@@ -6,7 +6,6 @@ permalink: /resume/
 
 # ABDULLAH SAHRURI  
 Lafayette, LA 70506  
-(386) 732-8572  
 abdullah.sahruri1@louisiana.edu  
 abdullah.sahruri@gmail.com
 
