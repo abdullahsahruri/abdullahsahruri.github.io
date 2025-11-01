@@ -24,6 +24,7 @@ navbar-links:
   Resume: "https://abdullahsahruri.github.io/resume/"
   Research: "https://abdullahsahruri.github.io/research/"
   Blog: "https://abdullahsahruri.github.io/blog/"
+  Conferences: "conferences"
   #Resources:
      #- Resume: "https://abdullahsahruri.github.io/resume/"
      #- Blog: ""
