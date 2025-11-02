@@ -273,29 +273,3 @@ function filterTable(filter) {
 document.addEventListener('DOMContentLoaded', loadConferences);
 </script>
 
----
-
-## About This Tracker
-
-This conference deadline tracker is powered by an **intelligent automated system** that:
-
-- 🔍 **Automatically discovers** conferences by searching the web
-- 🧠 **Extracts deadlines** from any conference website using smart parsing
-- 🔄 **Detects changes** daily and sends email notifications
-- 📊 **Maintains a database** with historical change tracking
-- 🗓️ **Syncs to Google Calendar** automatically
-- 🤖 **Runs daily** via GitHub Actions at 9 AM UTC
-
-### Features:
-- ✅ Real-time deadline tracking
-- ✅ Handles changing conference URLs year-to-year
-- ✅ Email alerts for deadline changes
-- ✅ Search and filter functionality
-- ✅ Mobile-responsive design
-
-### Source Code:
-[GitHub Repository](https://github.com/abdullahsahruri/conference-tracker)
-
----
-
-*Last auto-update: Check the table above*
