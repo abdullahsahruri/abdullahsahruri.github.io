@@ -7,7 +7,8 @@ subtitle: Automatically updated conference submission deadlines
 <style>
     .conference-table {
         width: 100%;
-        margin: 20px 0;
+        max-width: 1400px;
+        margin: 20px auto;
         border-collapse: collapse;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
@@ -93,7 +94,7 @@ subtitle: Automatically updated conference submission deadlines
     }
 </style>
 
-<div class="conference-tracker">
+<div class="conference-tracker" style="max-width: 1400px; margin: 0 auto;">
     <p style="font-size: 1.1em; margin-bottom: 20px;">
         🔄 Automatically updated daily at 9:00 AM UTC |
         📧 Email notifications for deadline changes |
@@ -137,11 +138,25 @@ async function loadConferences() {
 
 function displayConferences(data) {
     const conferences = Object.values(data);
+    const now = new Date();
+    const oneWeek = 7 * 24 * 60 * 60 * 1000;
 
-    // Sort by deadline
+    // Sort by deadline status: upcoming first, then soon (yellow), then expired (red)
     conferences.sort((a, b) => {
         const dateA = new Date(a.paper_deadline || '9999-12-31');
         const dateB = new Date(b.paper_deadline || '9999-12-31');
+        const diffA = dateA - now;
+        const diffB = dateB - now;
+
+        // Categorize deadlines: 0=upcoming, 1=soon (yellow), 2=expired (red)
+        const categoryA = diffA < 0 ? 2 : (diffA < oneWeek ? 1 : 0);
+        const categoryB = diffB < 0 ? 2 : (diffB < oneWeek ? 1 : 0);
+
+        // First sort by category
+        if (categoryA !== categoryB) {
+            return categoryA - categoryB;
+        }
+        // Within same category, sort by date (ascending)
         return dateA - dateB;
     });
 
