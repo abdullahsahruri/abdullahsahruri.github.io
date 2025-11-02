@@ -166,6 +166,7 @@ function displayConferences(data) {
                 <tr>
                     <th>Conference</th>
                     <th>Paper Deadline</th>
+                    <th>Type</th>
                     <th>Website</th>
                     <th>Last Checked</th>
                 </tr>
@@ -175,6 +176,7 @@ function displayConferences(data) {
 
     conferences.forEach(conf => {
         const deadline = conf.paper_deadline || 'TBD';
+        const submissionType = conf.submission_type || 'Regular Paper';
         const lastChecked = conf.last_checked ? conf.last_checked.split('T')[0] : 'N/A';
         const url = conf.url || '#';
         const urlDisplay = url.length > 50 ? url.substring(0, 50) + '...' : url;
@@ -200,6 +202,7 @@ function displayConferences(data) {
             <tr class="${rowClass}" data-conference="${conf.name.toLowerCase()}" data-deadline="${deadline}">
                 <td class="conf-name">${conf.name}</td>
                 <td class="deadline">${deadline}</td>
+                <td>${submissionType}</td>
                 <td><a href="${url}" target="_blank" class="conf-url">${urlDisplay}</a></td>
                 <td>${lastChecked}</td>
             </tr>
