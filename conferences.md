@@ -7,13 +7,13 @@ subtitle: Automatically updated conference submission deadlines
 <style>
     .conference-table {
         width: 100%;
-        max-width: 1400px;
+        max-width: 1800px;
         margin: 20px auto;
         border-collapse: collapse;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     .conference-table th {
-        background-color: #2c5aa0;
+        background-color: #6c757d;
         color: white;
         padding: 12px;
         text-align: left;
