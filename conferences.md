@@ -78,6 +78,19 @@ subtitle: Automatically updated conference submission deadlines
         background-color: #2c5aa0;
         color: white;
     }
+    /* Deadline status colors */
+    .deadline-expired {
+        background-color: #ffcdd2 !important;
+    }
+    .deadline-expired:hover {
+        background-color: #ef9a9a !important;
+    }
+    .deadline-soon {
+        background-color: #fff9c4 !important;
+    }
+    .deadline-soon:hover {
+        background-color: #fff59d !important;
+    }
 </style>
 
 <div class="conference-tracker">
@@ -151,8 +164,25 @@ function displayConferences(data) {
         const url = conf.url || '#';
         const urlDisplay = url.length > 50 ? url.substring(0, 50) + '...' : url;
 
+        // Calculate deadline status
+        let rowClass = '';
+        if (deadline !== 'TBD') {
+            const deadlineDate = new Date(deadline);
+            const now = new Date();
+            const oneWeek = 7 * 24 * 60 * 60 * 1000; // milliseconds in a week
+            const timeDiff = deadlineDate - now;
+
+            if (timeDiff < 0) {
+                // Deadline has passed - red
+                rowClass = 'deadline-expired';
+            } else if (timeDiff < oneWeek) {
+                // Deadline within 1 week - yellow
+                rowClass = 'deadline-soon';
+            }
+        }
+
         html += `
-            <tr data-conference="${conf.name.toLowerCase()}" data-deadline="${deadline}">
+            <tr class="${rowClass}" data-conference="${conf.name.toLowerCase()}" data-deadline="${deadline}">
                 <td class="conf-name">${conf.name}</td>
                 <td class="deadline">${deadline}</td>
                 <td><a href="${url}" target="_blank" class="conf-url">${urlDisplay}</a></td>
