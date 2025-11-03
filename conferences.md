@@ -70,9 +70,9 @@ function displayConferences(data) {
                 <tr>
                     <th>Conference</th>
                     <th>Paper Deadline</th>
+                    <th>Location</th>
                     <th>Type</th>
                     <th>Website</th>
-                    <th>Last Checked</th>
                 </tr>
             </thead>
             <tbody>
@@ -81,9 +81,9 @@ function displayConferences(data) {
     conferences.forEach(conf => {
         const deadline = conf.paper_deadline || 'TBD';
         const submissionType = conf.submission_type || 'Regular Paper';
-        const lastChecked = conf.last_checked ? conf.last_checked.split('T')[0] : 'N/A';
+        const location = conf.location || 'TBD';
         const url = conf.url || '#';
-        const urlDisplay = url.length > 50 ? url.substring(0, 50) + '...' : url;
+        const urlDisplay = url.length > 40 ? url.substring(0, 40) + '...' : url;
 
         // Calculate deadline status for highlighting
         let rowStyle = '';
@@ -104,9 +104,9 @@ function displayConferences(data) {
             <tr style="${rowStyle}" data-conference="${conf.name.toLowerCase()}" data-deadline="${deadline}">
                 <td style="font-weight: 600;">${conf.name}</td>
                 <td style="color: var(--accent-color); font-weight: 600;">${deadline}</td>
+                <td>${location}</td>
                 <td>${submissionType}</td>
                 <td><a href="${url}" target="_blank">${urlDisplay}</a></td>
-                <td>${lastChecked}</td>
             </tr>
         `;
     });
