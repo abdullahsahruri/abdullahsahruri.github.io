@@ -30,15 +30,24 @@ subtitle: Automatically updated conference submission deadlines
 // Load conference data from JSON
 async function loadConferences() {
     try {
+        console.log('Fetching conference data...');
         const response = await fetch('/assets/conference_database.json');
+        console.log('Response status:', response.status);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
         const data = await response.json();
+        console.log('Loaded conferences:', Object.keys(data).length);
 
         displayConferences(data);
         setupSearch(data);
     } catch (error) {
         document.getElementById('tableContainer').innerHTML =
-            '<p style="color: var(--accent-color); text-align: center;">Error loading conference data. Please check back later.</p>';
-        console.error('Error:', error);
+            `<p style="color: var(--accent-color); text-align: center;">Error loading conference data: ${error.message}</p>
+             <p style="text-align: center; font-size: 0.9em;">Check browser console for details.</p>`;
+        console.error('Error loading conferences:', error);
     }
 }
 
