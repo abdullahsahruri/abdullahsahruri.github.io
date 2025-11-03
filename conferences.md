@@ -4,14 +4,6 @@ title: Conference Deadlines
 subtitle: Automatically updated conference submission deadlines
 ---
 
-<div class="conference-info" style="background: var(--bg-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
-    <p style="font-size: 1.1em; margin: 0; text-align: center;">
-        🔄 Automatically updated daily at 9:00 AM UTC |
-        📧 Email notifications for deadline changes |
-        🤖 Powered by Ollama AI (90% accuracy)
-    </p>
-</div>
-
 <div class="search-filter-section" style="margin-bottom: 2rem;">
     <input type="text" id="searchBox" placeholder="🔍 Search conferences..."
            style="width: 100%; max-width: 400px; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 5px; font-size: 1rem; margin-bottom: 1rem;">
