@@ -4,121 +4,35 @@ title: Conference Deadlines
 subtitle: Automatically updated conference submission deadlines
 ---
 
-<style>
-    .conference-table {
-        width: 100%;
-        max-width: 1800px;
-        margin: 20px auto;
-        border-collapse: collapse;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .conference-table th {
-        background-color: #6c757d;
-        color: white;
-        padding: 12px;
-        text-align: left;
-        font-weight: 600;
-    }
-    .conference-table td {
-        padding: 10px 12px;
-        border-bottom: 1px solid #ddd;
-    }
-    .conference-table tr:hover {
-        background-color: #f5f5f5;
-    }
-    .conference-table tr:nth-child(even) {
-        background-color: #fafafa;
-    }
-    .deadline {
-        color: #d32f2f;
-        font-weight: 600;
-    }
-    .conf-name {
-        font-weight: 600;
-        color: #333;
-    }
-    .conf-url {
-        color: #1a73e8;
-        text-decoration: none;
-    }
-    .conf-url:hover {
-        text-decoration: underline;
-    }
-    .last-updated {
-        text-align: right;
-        color: #666;
-        font-size: 0.9em;
-        margin-top: 20px;
-        font-style: italic;
-    }
-    .search-box {
-        margin: 20px 0;
-        padding: 10px;
-        width: 100%;
-        max-width: 400px;
-        border: 2px solid #ddd;
-        border-radius: 4px;
-        font-size: 16px;
-    }
-    .filter-buttons {
-        margin: 15px 0;
-    }
-    .filter-btn {
-        padding: 8px 16px;
-        margin: 5px;
-        border: none;
-        border-radius: 4px;
-        background-color: #e0e0e0;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-    .filter-btn:hover {
-        background-color: #d0d0d0;
-    }
-    .filter-btn.active {
-        background-color: #2c5aa0;
-        color: white;
-    }
-    /* Deadline status colors */
-    .deadline-expired {
-        background-color: #ffcdd2 !important;
-    }
-    .deadline-expired:hover {
-        background-color: #ef9a9a !important;
-    }
-    .deadline-soon {
-        background-color: #fff9c4 !important;
-    }
-    .deadline-soon:hover {
-        background-color: #fff59d !important;
-    }
-</style>
-
-<div class="conference-tracker" style="max-width: 1400px; margin: 0 auto;">
-    <p style="font-size: 1.1em; margin-bottom: 20px;">
+<div class="conference-info" style="background: var(--bg-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+    <p style="font-size: 1.1em; margin: 0; text-align: center;">
         🔄 Automatically updated daily at 9:00 AM UTC |
         📧 Email notifications for deadline changes |
         🗓️ Synced with Google Calendar
     </p>
-
-    <input type="text" id="searchBox" class="search-box" placeholder="🔍 Search conferences...">
-
-    <div class="filter-buttons">
-        <button class="filter-btn active" onclick="filterTable('all')">All</button>
-        <button class="filter-btn" onclick="filterTable('2025')">2025</button>
-        <button class="filter-btn" onclick="filterTable('2026')">2026</button>
-        <button class="filter-btn" onclick="filterTable('upcoming')">Upcoming Deadlines</button>
-    </div>
-
-    <div id="tableContainer">
-        <!-- Table will be loaded here -->
-        <p style="text-align: center; padding: 40px;">
-            <em>Loading conference data...</em>
-        </p>
-    </div>
-
-    <p class="last-updated" id="lastUpdated">Last updated: Loading...</p>
 </div>
+
+<div class="search-filter-section" style="margin-bottom: 2rem;">
+    <input type="text" id="searchBox" placeholder="🔍 Search conferences..."
+           style="width: 100%; max-width: 400px; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 5px; font-size: 1rem; margin-bottom: 1rem;">
+
+    <div class="filter-buttons" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <button class="btn" onclick="filterTable('all')" style="background: var(--primary-color);">All</button>
+        <button class="btn btn-secondary" onclick="filterTable('2025')">2025</button>
+        <button class="btn btn-secondary" onclick="filterTable('2026')">2026</button>
+        <button class="btn btn-secondary" onclick="filterTable('upcoming')">Upcoming Deadlines</button>
+    </div>
+</div>
+
+<div id="tableContainer">
+    <p style="text-align: center; padding: 40px; color: var(--text-light);">
+        <em>Loading conference data...</em>
+    </p>
+</div>
+
+<p style="text-align: right; color: var(--text-light); font-size: 0.9em; margin-top: 1.5rem; font-style: italic;" id="lastUpdated">
+    Last updated: Loading...
+</p>
 
 <script>
 // Load conference data from JSON
@@ -131,7 +45,7 @@ async function loadConferences() {
         setupSearch(data);
     } catch (error) {
         document.getElementById('tableContainer').innerHTML =
-            '<p style="color: red;">Error loading conference data. Please check back later.</p>';
+            '<p style="color: var(--accent-color); text-align: center;">Error loading conference data. Please check back later.</p>';
         console.error('Error:', error);
     }
 }
@@ -141,22 +55,20 @@ function displayConferences(data) {
     const now = new Date();
     const oneWeek = 7 * 24 * 60 * 60 * 1000;
 
-    // Sort by deadline status: upcoming first, then soon (yellow), then expired (red)
+    // Sort by deadline status: upcoming first, then soon, then expired
     conferences.sort((a, b) => {
         const dateA = new Date(a.paper_deadline || '9999-12-31');
         const dateB = new Date(b.paper_deadline || '9999-12-31');
         const diffA = dateA - now;
         const diffB = dateB - now;
 
-        // Categorize deadlines: 0=upcoming, 1=soon (yellow), 2=expired (red)
+        // Categorize: 0=upcoming, 1=soon (within week), 2=expired
         const categoryA = diffA < 0 ? 2 : (diffA < oneWeek ? 1 : 0);
         const categoryB = diffB < 0 ? 2 : (diffB < oneWeek ? 1 : 0);
 
-        // First sort by category
         if (categoryA !== categoryB) {
             return categoryA - categoryB;
         }
-        // Within same category, sort by date (ascending)
         return dateA - dateB;
     });
 
@@ -181,29 +93,27 @@ function displayConferences(data) {
         const url = conf.url || '#';
         const urlDisplay = url.length > 50 ? url.substring(0, 50) + '...' : url;
 
-        // Calculate deadline status
-        let rowClass = '';
+        // Calculate deadline status for highlighting
+        let rowStyle = '';
         if (deadline !== 'TBD') {
             const deadlineDate = new Date(deadline);
-            const now = new Date();
-            const oneWeek = 7 * 24 * 60 * 60 * 1000; // milliseconds in a week
             const timeDiff = deadlineDate - now;
 
             if (timeDiff < 0) {
-                // Deadline has passed - red
-                rowClass = 'deadline-expired';
+                // Expired - red background
+                rowStyle = 'background-color: #ffcdd2;';
             } else if (timeDiff < oneWeek) {
-                // Deadline within 1 week - yellow
-                rowClass = 'deadline-soon';
+                // Soon - yellow background
+                rowStyle = 'background-color: #fff9c4;';
             }
         }
 
         html += `
-            <tr class="${rowClass}" data-conference="${conf.name.toLowerCase()}" data-deadline="${deadline}">
-                <td class="conf-name">${conf.name}</td>
-                <td class="deadline">${deadline}</td>
+            <tr style="${rowStyle}" data-conference="${conf.name.toLowerCase()}" data-deadline="${deadline}">
+                <td style="font-weight: 600;">${conf.name}</td>
+                <td style="color: var(--accent-color); font-weight: 600;">${deadline}</td>
                 <td>${submissionType}</td>
-                <td><a href="${url}" target="_blank" class="conf-url">${urlDisplay}</a></td>
+                <td><a href="${url}" target="_blank">${urlDisplay}</a></td>
                 <td>${lastChecked}</td>
             </tr>
         `;
@@ -238,11 +148,18 @@ function setupSearch(data) {
 
 function filterTable(filter) {
     const rows = document.querySelectorAll('#confTable tbody tr');
-    const buttons = document.querySelectorAll('.filter-btn');
+    const buttons = document.querySelectorAll('.filter-buttons .btn');
 
     // Update active button
-    buttons.forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
+    buttons.forEach(btn => {
+        if (btn.onclick && btn.onclick.toString().includes(`'${filter}'`)) {
+            btn.style.background = 'var(--primary-color)';
+            btn.classList.remove('btn-secondary');
+        } else {
+            btn.style.background = 'var(--accent-color)';
+            btn.classList.add('btn-secondary');
+        }
+    });
 
     const now = new Date();
 
@@ -275,4 +192,3 @@ function filterTable(filter) {
 // Load data when page loads
 document.addEventListener('DOMContentLoaded', loadConferences);
 </script>
-
