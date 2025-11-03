@@ -8,7 +8,7 @@ subtitle: Automatically updated conference submission deadlines
     <p style="font-size: 1.1em; margin: 0; text-align: center;">
         🔄 Automatically updated daily at 9:00 AM UTC |
         📧 Email notifications for deadline changes |
-        🗓️ Synced with Google Calendar
+        🤖 Powered by Ollama AI (90% accuracy)
     </p>
 </div>
 
