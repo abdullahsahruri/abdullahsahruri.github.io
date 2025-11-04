@@ -26,6 +26,53 @@ subtitle: Automatically updated conference submission deadlines
     Last updated: Loading...
 </p>
 
+<div style="margin-top: 3rem; padding: 2rem; background: var(--bg-color); border-left: 4px solid var(--primary-color); border-radius: 5px;">
+    <h2 style="margin-top: 0; color: var(--primary-color);">Approximate Deadlines</h2>
+    <p style="color: var(--text-light); margin-bottom: 1.5rem;">Schedule your paper submissions with these typical deadline timeframes:</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+        <div>
+            <h3 style="color: var(--accent-color); font-size: 1.1em; margin-bottom: 1rem;">VLSI Design</h3>
+            <ul style="list-style: none; padding-left: 0; line-height: 1.8;">
+                <li>VLSI Symposium - Mid January</li>
+                <li>ISLPED - Mid March</li>
+                <li>MWSCAS - Mid March</li>
+                <li>CICC - Early April</li>
+                <li>VLSI-SOC - Mid April</li>
+                <li>ICCD - Early May</li>
+                <li>ISQED - Early October</li>
+                <li>ISCAS - Early October</li>
+                <li>GLSVLSI - December</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3 style="color: var(--accent-color); font-size: 1.1em; margin-bottom: 1rem;">VLSI CAD</h3>
+            <ul style="list-style: none; padding-left: 0; line-height: 1.8;">
+                <li>ICCAD - Mid April</li>
+                <li>IWLS - Mid April</li>
+                <li>ASP-DAC - Mid July</li>
+                <li>DATE - Early September</li>
+                <li>ISPD - Early October</li>
+                <li>DAC - Late November</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3 style="color: var(--accent-color); font-size: 1.1em; margin-bottom: 1rem;">FPGA</h3>
+            <ul style="list-style: none; padding-left: 0; line-height: 1.8;">
+                <li>FCCM - Mid January</li>
+                <li>CODES+ISSS - Mid April</li>
+                <li>ISFPGA - Mid September</li>
+            </ul>
+        </div>
+    </div>
+
+    <p style="margin-top: 1.5rem; font-size: 0.9em; color: var(--text-light); font-style: italic;">
+        Note: These are typical deadline periods and may vary by year. Always check the official conference websites for exact dates.
+    </p>
+</div>
+
 <script>
 // Load conference data from JSON
 async function loadConferences() {
