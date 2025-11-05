@@ -22,5 +22,29 @@
     "last_checked": "2025-11-03T21:55:00.762930",
     "extracted_with_ai": false,
     "ai_model": "manual"
+  },
+  "DAC_2026": {
+    "paper_deadline": "November 11 2025",
+    "submission_type": "Regular Paper",
+    "conference_date": "June 26-30 2026",
+    "abstract_deadline": null,
+    "location": "San Francisco CA",
+    "name": "DAC 2026",
+    "url": "https://softconf.com/dac26/research/",
+    "last_checked": "2025-11-04T21:58:58.649564",
+    "extracted_with_ai": false,
+    "ai_model": "manual"
+  },
+  "ISQED_2026": {
+    "paper_deadline": "November 17 2025",
+    "submission_type": "Regular Paper",
+    "conference_date": "March 3-5 2026",
+    "abstract_deadline": null,
+    "location": "Virtual",
+    "name": "ISQED 2026",
+    "url": "https://www.isqed.org/",
+    "last_checked": "2025-11-04T21:58:58.649851",
+    "extracted_with_ai": false,
+    "ai_model": "manual"
   }
 }
