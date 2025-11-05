@@ -7,19 +7,7 @@
     "location": "Raleigh NC",
     "name": "ISCA 2026",
     "url": "https://iscaconf.org/isca2026",
-    "last_checked": "2025-11-03T21:55:00.762677",
-    "extracted_with_ai": false,
-    "ai_model": "manual"
-  },
-  "MICRO_2026": {
-    "paper_deadline": "April 11 2026",
-    "submission_type": "Regular Paper",
-    "conference_date": null,
-    "abstract_deadline": null,
-    "location": "Seoul Korea",
-    "name": "MICRO 2026",
-    "url": "https://microarch.org/micro59",
-    "last_checked": "2025-11-03T21:55:00.762930",
+    "last_checked": "2025-11-04T22:02:44.313769",
     "extracted_with_ai": false,
     "ai_model": "manual"
   },
@@ -31,7 +19,7 @@
     "location": "San Francisco CA",
     "name": "DAC 2026",
     "url": "https://softconf.com/dac26/research/",
-    "last_checked": "2025-11-04T21:58:58.649564",
+    "last_checked": "2025-11-04T22:02:44.313997",
     "extracted_with_ai": false,
     "ai_model": "manual"
   },
@@ -43,7 +31,7 @@
     "location": "Virtual",
     "name": "ISQED 2026",
     "url": "https://www.isqed.org/",
-    "last_checked": "2025-11-04T21:58:58.649851",
+    "last_checked": "2025-11-04T22:02:44.315074",
     "extracted_with_ai": false,
     "ai_model": "manual"
   }
