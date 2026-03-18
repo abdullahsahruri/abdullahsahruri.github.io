@@ -79,6 +79,8 @@ A. G. Ayar, **A. Sahruri**, S. Aygun, M. S. Moghadam, M. H. Najafi, M. Margala, 
 
 **A. Sahruri**, M. Margala, U. Cilingiroglu. "HiCTL: High Fan-in Differential Capacitive-Threshold-Logic Gate Implementation With An Offset-Compensated Comparator". *25th International Symposium on Quality Electronic Design (ISQED), San Francisco, CA, USA, 2024*. doi: 10.1109/ISQED60706.2024.10528704  
 
+**A. Sahruri** and M. Margala, "TLGLock: A New Approach in Logic Locking Using Key-Driven Charge Recycling in Threshold Logic Gates," 2025 IFIP/IEEE 33rd International Conference on Very Large Scale Integration (VLSI-SoC), Puerto Varas, Chile, 2025, pp. 1-5, doi: 10.1109/VLSI-SoC64688.2025.11421756.
+
 ---
 
 ### POSTER PRESENTATIONS  
