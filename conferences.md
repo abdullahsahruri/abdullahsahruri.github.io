@@ -37,7 +37,9 @@ subtitle: Automatically updated conference submission deadlines
                 <li>VLSI Symposium - Mid January</li>
                 <li>ISLPED - Mid March</li>
                 <li>MWSCAS - Mid March</li>
+                <li>HEART - Mid March</li>
                 <li>CICC - Early April</li>
+                <li>SOCC - Early April</li>
                 <li>VLSI-SOC - Mid April</li>
                 <li>ICCD - Early May</li>
                 <li>ISQED - Early October</li>
