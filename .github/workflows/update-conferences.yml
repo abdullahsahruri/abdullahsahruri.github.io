@@ -1,9 +1,7 @@
 name: Update conference list
 
 on:
-  schedule:
-    - cron: "23 6 * * 1"   # Mondays 06:23 UTC
-  workflow_dispatch:
+  workflow_dispatch:   # manual only; the keyword-search job (discover-conferences.yml) is the scheduled one
 
 permissions:
   contents: write

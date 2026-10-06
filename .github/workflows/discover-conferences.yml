@@ -1,0 +1,41 @@
+name: Discover conferences by keyword
+
+on:
+  schedule:
+    - cron: "41 6 * * 2"   # Tuesdays 06:41 UTC
+  workflow_dispatch:
+    inputs:
+      review_only:
+        description: "Only refresh _data/conference_candidates.yml; do not touch the public list"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - name: Search, extract, merge
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}   # optional; DuckDuckGo is used when unset
+          GOOGLE_CSE_ID: ${{ secrets.GOOGLE_CSE_ID }}
+          REVIEW_ONLY: ${{ inputs.review_only }}
+        run: |
+          flags=""
+          [ "$REVIEW_ONLY" = "true" ] && flags="--review-only"
+          python scripts/discover_conferences.py $flags | tee discover.log
+      - name: Commit if anything changed
+        run: |
+          git add _data/conferences.yml _data/conference_candidates.yml
+          git diff --cached --quiet && { echo "Nothing to commit."; exit 0; }
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          { echo "Discover conferences by keyword"; echo; grep -E '^(added|updated) ' discover.log || true; } | git commit -F -
+          git push
