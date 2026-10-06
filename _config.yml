@@ -58,6 +58,7 @@ exclude:
   - publish.bat
   - publish.sh
   - CONFERENCES-HOWTO.md
+  - addconf.py
   - screenshot.png
   - docs/
   - beautiful-jekyll-theme.gemspec
