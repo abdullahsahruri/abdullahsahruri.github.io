@@ -55,6 +55,7 @@ exclude:
   - LICENSE
   - README.md
   - readme
+  - scripts/
   - screenshot.png
   - docs/
   - beautiful-jekyll-theme.gemspec

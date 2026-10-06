@@ -49,7 +49,52 @@ subtitle: Paper deadlines for digital VLSI, EDA and FPGA venues
   </tbody>
 </table>
 
-<p class="conf-note">Dates come from each conference's call for papers and can move; check the official site before planning around one. To add or fix an entry, edit <code>_data/conferences.yml</code>.</p>
+
+<div class="conf-approx">
+  <h2>Approximate deadlines</h2>
+  <p>Typical submission windows, for planning before a call for papers is out. Always confirm on the official site.</p>
+  <div class="conf-approx-grid">
+    <div>
+      <h3>VLSI design</h3>
+      <ul>
+        <li>VLSI Symposium – mid January</li>
+        <li>ISLPED – mid March</li>
+        <li>MWSCAS – mid March</li>
+        <li>HEART – mid March</li>
+        <li>CICC – early April</li>
+        <li>SOCC – early April</li>
+        <li>VLSI-SoC – mid April</li>
+        <li>ICCD – early May</li>
+        <li>ISQED – early October</li>
+        <li>ISCAS – early October</li>
+        <li>GLSVLSI – December</li>
+      </ul>
+    </div>
+    <div>
+      <h3>VLSI CAD</h3>
+      <ul>
+        <li>ICCAD – mid April</li>
+        <li>IWLS – mid April</li>
+        <li>ASP-DAC – mid July</li>
+        <li>DATE – early September</li>
+        <li>ISPD – early October</li>
+        <li>DAC – late November</li>
+      </ul>
+    </div>
+    <div>
+      <h3>FPGA</h3>
+      <ul>
+        <li>FCCM – mid January</li>
+        <li>FPL – late March</li>
+        <li>CODES+ISSS – mid April</li>
+        <li>FPT – June</li>
+        <li>ISFPGA – early October</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<p class="conf-note">Dates come from each conference's call for papers and can move; check the official site before planning around one. The list is refreshed automatically from the Chalmers page every week.</p>
 
 <style>
   .conf-intro, .conf-note { color: var(--text-light, #6c757d); font-size: .95em; }
@@ -59,6 +104,12 @@ subtitle: Paper deadlines for digital VLSI, EDA and FPGA venues
   .conf-list tr.conf-past td { color: #9aa0a6; }
   .conf-list tr.conf-past td a { color: #9aa0a6; }
   .conf-list tr.conf-tbd td { font-style: italic; }
+  .conf-approx { margin-top: 3rem; padding: 1.5rem 2rem; background: var(--bg-light, #f7f8fa); border-left: 4px solid var(--primary-color, #6c757d); border-radius: 5px; }
+  .conf-approx h2 { margin-top: 0; font-size: 1.4em; }
+  .conf-approx h3 { font-size: 1.05em; margin-bottom: .5rem; }
+  .conf-approx p { color: var(--text-light, #6c757d); font-size: .95em; }
+  .conf-approx-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+  .conf-approx ul { list-style: none; padding-left: 0; line-height: 1.8; margin: 0; }
   .conf-list tr.conf-divider td { background: var(--bg-light, #f3f4f6); color: var(--text-light, #6c757d); font-size: .8em; text-transform: uppercase; letter-spacing: .06em; padding: 6px 12px; }
   @media (max-width: 600px) {
     .conf-list th:nth-child(2), .conf-list td:nth-child(2) { display: none; }
