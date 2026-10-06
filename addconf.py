@@ -50,7 +50,7 @@ DEADLINE_CUES = [  # (regex on the label just before a date, weight)
     (r"\bdue\b", 1),
 ]
 NEGATIVE = r"abstract|regist|notification|notif|camera[\s-]*ready|acceptance|rebuttal|workshop|tutorial|poster|demo|special session|late[\s-]*breaking|wip\b|work[\s-]in[\s-]progress|journal|revision|opens?\b|early[\s-]bird|hotel|travel|visa|award|student"
-NAME_RE = re.compile(r"\b(?:IEEE\s+|ACM\s+|IEEE/ACM\s+)?([A-Z][A-Za-z]*(?:[-+/&][A-Za-z]+)*(?:\s(?:[A-Z][A-Za-z]+|[A-Z]{2,}))?)(?:\s*(20\d\d)|\s?[’'](\d\d))\b")
+NAME_RE = re.compile(r"\b(?:IEEE +|ACM +|IEEE/ACM +)?([A-Z][A-Za-z]*(?:[-+/&][A-Za-z]+)*(?: (?:[A-Z][A-Za-z]+|[A-Z]{2,}))?)(?: *(20\d\d)| ?[’'](\d\d))\b")
 NAME_REV_RE = re.compile(r"\b(20\d\d)\s+(?:IEEE\s+|ACM\s+|IEEE/ACM\s+)?([A-Z][A-Z0-9+/&-]{2,}(?:\s[A-Z][A-Z0-9+/&-]{2,})?)\b")
 NOISE = {"call", "cfp", "ieee", "acm", "the", "copyright", "all", "home", "conference", "symposium", "workshop", "international",
          "important", "dates", "deadline", "papers", "paper", "for", "sunday", "monday", "tuesday", "wednesday", "thursday", "friday",
@@ -141,10 +141,26 @@ def deadline(text):
     return best
 
 
+EVENT_CUES = r"conference|symposium|held|venue|when\b|dates?\s*:|takes? place|event"
+
+
 def event_date(text, dl):
-    """First date *range* on the page after the deadline: conference dates are ranges."""
-    c = [d for d, s, e, r in dates(text) if r and (not dl or d > dl)]
-    return min(c) if c else None
+    """A date *range* after the deadline whose label looks like the conference itself,
+    not a rebuttal/notification/registration window."""
+    best, best_score, prev_end = None, -99, 0
+    for d, s, e, is_range in dates(text):
+        label = text[max(prev_end, s - 110):s].lower()
+        prev_end = e
+        if not is_range or (dl and d <= dl):
+            continue
+        score = 0
+        if re.search(EVENT_CUES, label):
+            score += 3
+        if re.search(NEGATIVE, label[-70:]) or any(re.search(c, label) for c, _ in DEADLINE_CUES):
+            score -= 5
+        if score > best_score or (score == best_score and best and d < best):
+            best, best_score = d, score
+    return best
 
 
 def name(title, text):
@@ -221,8 +237,17 @@ def main():
             continue
         k = key(row["name"])
         old = next((r for r in rows if key(r["name"]) == k), None)
+        if old is None:  # same year and one acronym contains the other, e.g. FPGA 2027 vs ISFPGA 2027
+            yr = k[-4:]
+            for r in rows:
+                rk = key(r["name"])
+                if rk[-4:] == yr and (rk[:-4].strip() in k or k[:-4].strip() in rk) and rk[:-4].strip():
+                    if a.yes or input(f"  looks like the existing entry '{r['name']}'; replace it? [y/N] ").strip().lower() in ("y", "yes"):
+                        old = r
+                    break
         if old:
             rows.remove(old)
+            row["note"] = row["note"] or old["note"]
             print(f"  replaced {old['name']}")
         rows.append(row)
         changed += 1
