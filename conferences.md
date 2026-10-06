@@ -4,6 +4,12 @@ title: Conference Deadlines
 subtitle: Automatically updated conference submission deadlines
 ---
 
+## My planner
+
+{% include deadline-planner.html %}
+
+## All tracked conferences
+
 <div class="search-filter-section" style="margin-bottom: 2rem;">
     <input type="text" id="searchBox" placeholder="🔍 Search conferences..."
            style="width: 100%; max-width: 400px; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 5px; font-size: 1rem; margin-bottom: 1rem;">
