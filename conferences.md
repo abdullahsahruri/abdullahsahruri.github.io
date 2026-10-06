@@ -22,18 +22,20 @@ subtitle: Paper deadlines for digital VLSI, EDA and FPGA venues
   {%- assign n = 0 -%}
   {%- comment -%} 1. upcoming, soonest first {%- endcomment -%}
   {%- for c in confs -%}
-    {%- if c.deadline == "" or c.deadline < today -%}{%- continue -%}{%- endif -%}
+    {%- assign dl = c.deadline | default: "" -%}
+    {%- if dl == "" or dl < today -%}{%- continue -%}{%- endif -%}
     {%- assign n = n | plus: 1 -%}
-    <tr class="conf-up{% if n > shown %} conf-more{% endif %}" data-deadline="{{ c.deadline }}">
+    <tr class="conf-up{% if n > shown %} conf-more{% endif %}" data-deadline="{{ dl }}">
       <td class="conf-name">{{ c.name }}</td>
       <td class="conf-url"><a href="{{ c.url }}" target="_blank" rel="noopener">{{ c.url | remove: "https://" | remove: "http://" | remove: "www." | split: "/" | first }}</a></td>
-      <td class="conf-date"><span class="conf-pill">{{ c.deadline }}</span>{% if c.note %} <small>{{ c.note }}</small>{% endif %}</td>
+      <td class="conf-date"><span class="conf-pill">{{ dl }}</span>{% if c.note %} <small>{{ c.note }}</small>{% endif %}</td>
       <td class="conf-date">{{ c.date | default: "TBD" }}</td>
     </tr>
   {%- endfor -%}
   {%- comment -%} 2. CFP not out yet {%- endcomment -%}
   {%- for c in confs -%}
-    {%- if c.deadline != "" -%}{%- continue -%}{%- endif -%}
+    {%- assign dl = c.deadline | default: "" -%}
+    {%- if dl != "" -%}{%- continue -%}{%- endif -%}
     {%- assign n = n | plus: 1 -%}
     <tr class="conf-tbd{% if n > shown %} conf-more{% endif %}">
       <td class="conf-name">{{ c.name }}</td>
@@ -45,12 +47,13 @@ subtitle: Paper deadlines for digital VLSI, EDA and FPGA venues
   {%- comment -%} 3. past, most recent first {%- endcomment -%}
   {%- assign past = confs | reverse -%}
   {%- for c in past -%}
-    {%- if c.deadline == "" or c.deadline >= today -%}{%- continue -%}{%- endif -%}
+    {%- assign dl = c.deadline | default: "" -%}
+    {%- if dl == "" or dl >= today -%}{%- continue -%}{%- endif -%}
     {%- assign n = n | plus: 1 -%}
-    <tr class="conf-past{% if n > shown %} conf-more{% endif %}" data-deadline="{{ c.deadline }}">
+    <tr class="conf-past{% if n > shown %} conf-more{% endif %}" data-deadline="{{ dl }}">
       <td class="conf-name">{{ c.name }}</td>
       <td class="conf-url"><a href="{{ c.url }}" target="_blank" rel="noopener">{{ c.url | remove: "https://" | remove: "http://" | remove: "www." | split: "/" | first }}</a></td>
-      <td class="conf-date">{{ c.deadline }}{% if c.note %} <small>{{ c.note }}</small>{% endif %}</td>
+      <td class="conf-date">{{ dl }}{% if c.note %} <small>{{ c.note }}</small>{% endif %}</td>
       <td class="conf-date">{{ c.date | default: "TBD" }}</td>
     </tr>
   {%- endfor -%}
