@@ -7,7 +7,7 @@ subtitle: Paper deadlines for digital VLSI, EDA and FPGA venues
 {% assign confs = site.data.conferences | sort: "deadline" %}
 {% assign today = site.time | date: "%Y-%m-%d" %}
 
-<p class="conf-intro">Upcoming paper deadlines first, soonest at the top; venues whose call for papers is not out yet are listed as TBD, and past deadlines follow below. Built on <a href="https://www.cse.chalmers.se/research/group/vlsi/conference/">the Chalmers VLSI group's list</a>, with FPGA venues added. Last rebuilt {{ site.time | date: "%Y-%m-%d" }}.</p>
+<p class="conf-intro">Upcoming paper deadlines first, soonest at the top; venues whose call for papers is not out yet are listed as TBD, and past deadlines follow below.</p>
 
 <table class="conference-table conf-list" id="conf-list">
   <thead>
