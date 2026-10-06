@@ -1,4 +1,4 @@
-name: Add or update a conference
+name: Add, update or remove a conference
 
 on:
   workflow_dispatch:
@@ -10,16 +10,16 @@ on:
         description: "Home page URL"
         required: false
       deadline:
-        description: "Paper deadline, YYYY-MM-DD (leave empty for TBD)"
+        description: "Paper deadline, YYYY-MM-DD (empty = TBD)"
         required: false
       date:
-        description: "Conference start date, YYYY-MM-DD (leave empty for TBD)"
+        description: "Conference start date, YYYY-MM-DD (empty = TBD)"
         required: false
       note:
         description: "Short note, e.g. 'abstract 2027-01-05'"
         required: false
-      pin:
-        description: "Protect this entry from the automatic updater"
+      remove:
+        description: "Remove this conference instead"
         type: boolean
         default: false
 
@@ -27,7 +27,7 @@ permissions:
   contents: write
 
 jobs:
-  add:
+  edit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -42,16 +42,16 @@ jobs:
           C_DEADLINE: ${{ inputs.deadline }}
           C_DATE: ${{ inputs.date }}
           C_NOTE: ${{ inputs.note }}
-          C_PIN: ${{ inputs.pin }}
+          C_REMOVE: ${{ inputs.remove }}
         run: |
           args=(--name "$C_NAME" --url "$C_URL" --deadline "$C_DEADLINE" --date "$C_DATE" --note "$C_NOTE")
-          [ "$C_PIN" = "true" ] && args+=(--pin)
-          python scripts/add_conference.py "${args[@]}" | tee add.log
+          [ "$C_REMOVE" = "true" ] && args+=(--remove)
+          python scripts/add_conference.py "${args[@]}" | tee change.log
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add _data/conferences.yml
           git diff --cached --quiet && { echo "No change."; exit 0; }
-          git commit -m "Conferences: $(cat add.log)"
+          git commit -m "Conferences: $(cat change.log)"
           git push

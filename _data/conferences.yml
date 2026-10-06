@@ -1,6 +1,6 @@
-# Conference list for /conferences. One entry per line-group; dates are YYYY-MM-DD.
-# Base list adapted from the Chalmers VLSI group's page
-# (https://www.cse.chalmers.se/research/group/vlsi/conference/), plus FPGA venues.
+# Conference list shown on /conferences. One entry per line; dates are YYYY-MM-DD, empty = TBD.
+# Edit by hand, or use the "Add, update or remove a conference" workflow in the Actions tab.
+# Started from the Chalmers VLSI group list (cse.chalmers.se/research/group/vlsi/conference) plus FPGA venues.
 - {name: "ISTC 2027",               url: "https://2027.istc-conf.org/",            deadline: "2027-04-15", date: "2027-08-23"}
 - {name: "Symp. VLSI Circuits 2027",url: "https://www.vlsisymposium.org/",         deadline: "2027-01-25", date: "2027-06-20"}
 - {name: "FCCM 2027",               url: "https://www.fccm.org/",                  deadline: "",           date: "",           note: "CFP not posted yet; usually mid-January / May"}
