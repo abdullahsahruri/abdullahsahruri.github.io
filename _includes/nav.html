@@ -1,22 +1,17 @@
-<nav class="navbar">
-    <div class="nav-container">
-        <a href="{{ '/' | relative_url }}" class="nav-brand">
-            {% if site.avatar %}
-            <img src="{{ site.avatar | relative_url }}" alt="{{ site.author }}" class="nav-avatar">
-            {% endif %}
-            <span class="nav-title">{{ site.title }}</span>
-        </a>
-
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-        </button>
-
-        <ul class="nav-links" id="navLinks">
-            {% for link in site.navbar-links %}
-                <li>
-                    <a href="{{ link[1] | relative_url }}">{{ link[0] }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
+<nav class="nav">
+  <div class="nav-in">
+    <a href="{{ '/' | relative_url }}" class="brand">
+      <span class="brand-mark">AS</span>
+      <span>{{ site.title }}</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    <ul class="nav-links" id="navLinks">
+      {% for link in site.navbar-links %}
+      {% assign href = link[1] %}
+      {% assign cur = page.url | append: "/" | replace: "//", "/" %}
+      {% assign want = href | append: "/" | replace: "//", "/" %}
+      <li><a href="{{ href | relative_url }}"{% if cur == want or page.url == href %} class="active"{% endif %}>{{ link[0] }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
 </nav>

@@ -1,47 +1,17 @@
 ---
 layout: default
 ---
-
 <div class="container">
-    <article class="card">
-        <header>
-            <h1 class="post-title">{{ page.title }}</h1>
-            <div class="post-meta">
-                <time datetime="{{ page.date | date_to_xmlschema }}">
-                    {{ page.date | date: site.date_format | default: "%B %-d, %Y" }}
-                </time>
-                {% if page.author %}
-                <span> • {{ page.author }}</span>
-                {% endif %}
-            </div>
-        </header>
-
-        <div class="post-content">
-            {{ content }}
-        </div>
-
-        {% if page.tags.size > 0 %}
-        <div class="post-tags">
-            <strong>Tags:</strong>
-            {% for tag in page.tags %}
-            <a href="{{ '/tags' | relative_url }}#{{- tag -}}" class="tag">{{ tag }}</a>
-            {% endfor %}
-        </div>
-        {% endif %}
-    </article>
-
-    <!-- Post Navigation -->
-    <div class="post-navigation" style="display: flex; justify-content: space-between; margin-top: 2rem;">
-        {% if page.previous.url %}
-        <a href="{{ page.previous.url | relative_url }}" class="btn">
-            ← Previous Post
-        </a>
-        {% endif %}
-
-        {% if page.next.url %}
-        <a href="{{ page.next.url | relative_url }}" class="btn" style="margin-left: auto;">
-            Next Post →
-        </a>
-        {% endif %}
-    </div>
+  <header class="post-head">
+    <div class="eyebrow">Blog</div>
+    <h1>{{ page.title }}</h1>
+    {% if page.subtitle %}<p class="sub muted">{{ page.subtitle }}</p>{% endif %}
+    <div class="meta"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: site.date_format }}</time>{% if page.author %} · {{ page.author }}{% endif %}</div>
+  </header>
+  <article class="prose">
+    {{ content }}
+    {% if page.tags.size > 0 %}
+    <div class="post-tags">{% for tag in page.tags %}<a class="chip" href="{{ '/tags' | relative_url }}#{{ tag }}">#{{ tag }}</a>{% endfor %}</div>
+    {% endif %}
+  </article>
 </div>

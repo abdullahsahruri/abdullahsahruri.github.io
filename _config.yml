@@ -1,7 +1,7 @@
 # Site Settings
 title: Chips and Thoughts
 author: Abdullah Sahruri
-description: Computer Architecture Research and Technical Blog
+description: Abdullah Sahruri — threshold logic gates, FPGAs, hardware security and ML-driven EDA. PhD candidate at UL Lafayette.
 
 # Navigation Links
 navbar-links:
@@ -25,7 +25,7 @@ social-network-links:
 date_format: "%B %-d, %Y"
 
 # Jekyll Configuration
-timezone: "America/Toronto"
+timezone: "America/Chicago"
 markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/

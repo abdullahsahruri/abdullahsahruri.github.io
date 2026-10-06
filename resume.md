@@ -2,13 +2,8 @@
 layout: page
 title: "Resume"
 permalink: /resume/
----
-
-# ABDULLAH SAHRURI  
-Lafayette, LA 70506  
-abdullah.sahruri1@louisiana.edu  
-abdullah.sahruri@gmail.com
-
+cv: /assets/Abdullah_Sahruri_CV_1.pdf
+subtitle: Lafayette, LA · abdullah.sahruri1@louisiana.edu · abdullah.sahruri@gmail.com
 ---
 
 ## Summary

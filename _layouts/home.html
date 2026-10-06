@@ -1,54 +1,91 @@
 ---
 layout: default
 ---
-
-<!-- Hero Section -->
-<div class="hero-section">
-    {% if site.avatar %}
-    <img src="{{ site.avatar | relative_url }}" alt="{{ site.author }}" class="hero-avatar">
-    {% endif %}
-
-    <h1 class="hero-title">{{ site.author | default: site.title }}</h1>
-    <p class="hero-subtitle"> PhD Candidate - Computer Engineer</p>
-
-    <div class="hero-description">
-        {{ content }}
-    </div>
-</div>
-
-<!-- Recent Posts Section -->
-{% if site.posts.size > 0 %}
+{% assign pubs = site.data.publications %}
+{% assign confs = site.data.conferences | sort: "deadline" %}
+{% assign today = site.time | date: "%Y-%m-%d" %}
 <div class="container">
-    <section class="content-section">
-        <h2 class="section-title">Recent Posts</h2>
+  <section class="hero">
+    <div>
+      <div class="eyebrow">PhD candidate · Computer Engineering · UL Lafayette</div>
+      <h1>Abdullah <span>Sahruri</span></h1>
+      <p class="lede">{{ content | strip_html | strip }}</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="{{ '/research/' | relative_url }}"><i class="fas fa-flask"></i> Research</a>
+        <a class="btn" href="{{ '/resume/' | relative_url }}"><i class="fas fa-file-lines"></i> Resume</a>
+        <a class="btn" href="mailto:{{ site.social-network-links.email }}"><i class="fas fa-envelope"></i> Contact</a>
+      </div>
+      <div class="tags">
+        <span class="chip accent">Threshold logic</span><span class="chip">FPGA</span><span class="chip">Hardware security</span><span class="chip">ML for EDA</span><span class="chip violet">SKY130 SoC</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-ring"></div>
+      <img class="hero-avatar" src="{{ site.avatar | relative_url }}" alt="{{ site.author }}">
+    </div>
+  </section>
 
-        <ul class="post-list">
-            {% for post in site.posts limit:5 %}
-            <li class="post-item">
-                <h3 class="post-title">
-                    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                </h3>
+  <div class="stats">
+    {% assign nconf = pubs | where: "type", "conference" | size %}{% assign njour = pubs | where: "type", "journal" | size %}
+    <div class="stat"><b>{{ nconf | plus: njour }}</b><span>peer-reviewed papers</span></div>
+    <div class="stat"><b>{{ pubs | where: "type", "poster" | size }}</b><span>posters, incl. a best-poster award</span></div>
+    <div class="stat"><b>1</b><span>SoC signed off on SKY130A</span></div>
+    <div class="stat"><b>Dec&nbsp;2026</b><span>expected graduation</span></div>
+  </div>
 
-                <div class="post-date">
-                    {{ post.date | date: site.date_format | default: "%B %-d, %Y" }}
-                </div>
+  <section class="block">
+    <div class="section-head"><div><div class="eyebrow">What I work on</div><h2>Beyond Boolean</h2></div><a class="more" href="{{ '/research/' | relative_url }}">All research →</a></div>
+    <div class="grid grid-3">
+      {% for a in site.data.research_areas limit: 6 %}
+      <div class="card area"><div class="icon"><i class="fas {{ a.icon }}"></i></div><h3>{{ a.title }}</h3><p>{{ a.text }}</p></div>
+      {% endfor %}
+    </div>
+  </section>
 
-                {% if post.excerpt %}
-                <div class="post-excerpt">
-                    {{ post.excerpt | strip_html | truncatewords: 50 }}
-                </div>
-                {% endif %}
-
-                <a href="{{ post.url | relative_url }}" class="read-more">Read more →</a>
-            </li>
-            {% endfor %}
-        </ul>
-
-        {% if site.posts.size > 5 %}
-        <div class="text-center">
-            <a href="{{ '/blog' | relative_url }}" class="btn">View All Posts</a>
+  <section class="block" style="padding-top:0">
+    <div class="grid grid-2">
+      <div class="card glow">
+        <div class="section-head"><div><div class="eyebrow">Selected</div><h2>Publications</h2></div><a class="more" href="{{ '/research/' | relative_url }}">All →</a></div>
+        {% for p in pubs limit: 4 %}
+        <div class="pub">
+          <div class="year">{{ p.year }}</div>
+          <div>
+            <h3>{% if p.doi %}<a href="https://doi.org/{{ p.doi }}">{{ p.title }}</a>{% elsif p.url %}<a href="{{ p.url }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}</h3>
+            <div class="venue"><span class="chip {% if p.type == 'journal' %}violet{% elsif p.type == 'poster' %}amber{% else %}accent{% endif %}">{{ p.type }}</span>{{ p.venue }}</div>
+          </div>
         </div>
-        {% endif %}
-    </section>
+        {% endfor %}
+      </div>
+      <div class="card glow">
+        <div class="section-head"><div><div class="eyebrow">Next up</div><h2>Deadlines</h2></div><a class="more" href="{{ '/conferences/' | relative_url }}">Timeline →</a></div>
+        {% assign shown = 0 %}
+        {% for c in confs %}
+          {% assign dl = c.deadline | default: "" %}
+          {% if dl == "" or dl < today or shown >= 6 %}{% continue %}{% endif %}
+          {% assign shown = shown | plus: 1 %}
+          <div class="deadline-row" data-deadline="{{ dl }}">
+            <span class="d">{{ dl }}</span>
+            <span class="n"><a href="{{ c.url }}" target="_blank" rel="noopener">{{ c.name }}</a></span>
+            <span class="days ok"></span>
+          </div>
+        {% endfor %}
+        {% if shown == 0 %}<div class="empty">No upcoming deadlines in the list.</div>{% endif %}
+      </div>
+    </div>
+  </section>
+
+  {% if site.posts.size > 0 %}
+  <section class="block" style="padding-top:0">
+    <div class="section-head"><div><div class="eyebrow">Writing</div><h2>Latest posts</h2></div><a class="more" href="{{ '/blog/' | relative_url }}">All posts →</a></div>
+    <div class="grid grid-3">
+      {% for post in site.posts limit: 3 %}
+      <a class="card post-card" href="{{ post.url | relative_url }}">
+        <div class="date">{{ post.date | date: site.date_format }}</div>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.excerpt | strip_html | truncatewords: 28 }}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
 </div>
-{% endif %}

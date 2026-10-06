@@ -1,0 +1,43 @@
+# Publications shown on /research and the home page. Newest first.
+# Fields: title, authors (use **A. Sahruri** to bold yourself), venue, year, type (journal|conference|poster|preprint), doi (optional), url (optional), note (optional)
+- title: "TINKER: A Fully-Digital Threshold-Logic-Mapped BNN Inference SoC"
+  authors: "**A. Sahruri**, M. Margala"
+  venue: "IEEE 39th International System-on-Chip Conference (SOCC)"
+  year: 2026
+  type: poster
+- title: "TLG2LUT6"   # TODO: paste the full paper title
+  authors: "**A. Sahruri**, M. Margala"
+  venue: "ACM Great Lakes Symposium on VLSI (GLSVLSI)"
+  year: 2026
+  type: conference
+  note: "Journal extension under review at IEEE TVLSI"
+- title: "TLGLock: A New Approach in Logic Locking Using Key-Driven Charge Recycling in Threshold Logic Gates"
+  authors: "**A. Sahruri**, M. Margala"
+  venue: "IFIP/IEEE 33rd International Conference on Very Large Scale Integration (VLSI-SoC), Puerto Varas, Chile"
+  year: 2025
+  type: conference
+  doi: 10.1109/VLSI-SoC64688.2025.11421756
+  note: "FPGA extension submitted to ACM JETC"
+- title: "HiCTL: High Fan-in Differential Capacitive-Threshold-Logic Gate Implementation With An Offset-Compensated Comparator"
+  authors: "**A. Sahruri**, M. Margala, U. Cilingiroglu"
+  venue: "25th International Symposium on Quality Electronic Design (ISQED), San Francisco, CA"
+  year: 2024
+  type: conference
+  doi: 10.1109/ISQED60706.2024.10528704
+- title: "Detecting Vulnerability in Hardware Description Languages: Opcode Language Processing"
+  authors: "A. G. Ayar, **A. Sahruri**, S. Aygun, M. S. Moghadam, M. H. Najafi, M. Margala"
+  venue: "IEEE Embedded Systems Letters"
+  year: 2023
+  type: journal
+  doi: 10.1109/LES.2023.3334728
+- title: "A 32-bit Neuromorphic ALU Based on Threshold Logic Gates"
+  authors: "**A. Sahruri**, M. Margala"
+  venue: "IBM IEEE CAS/EDS AI Compute Symposium, IBM T.J. Watson Research Center"
+  year: 2023
+  type: poster
+- title: "High Fan-in Differential Capacitive-Threshold-Logic Implementation With an Offset-Compensated Comparator"
+  authors: "**A. Sahruri**, U. Cilingiroglu"
+  venue: "16th Dallas Circuits and Systems Conference (DCAS)"
+  year: 2023
+  type: poster
+  note: "Best Poster Award"
