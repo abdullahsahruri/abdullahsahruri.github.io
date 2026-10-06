@@ -1,46 +1,19 @@
-// Academic Theme - Main JavaScript
-
-// Mobile Navigation Toggle
-document.addEventListener('DOMContentLoaded', function() {
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-
-    if (navToggle && navLinks) {
-        navToggle.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking a link
-        const links = navLinks.querySelectorAll('a');
-        links.forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth <= 768) {
-                    navLinks.classList.remove('active');
-                }
-            });
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!navToggle.contains(event.target) && !navLinks.contains(event.target)) {
-                navLinks.classList.remove('active');
-            }
-        });
-    }
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (href !== '#') {
-                e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        });
+// Chips and Thoughts — site script
+(function () {
+  var t = document.getElementById('navToggle'), l = document.getElementById('navLinks');
+  if (t && l) {
+    t.addEventListener('click', function () { var o = l.classList.toggle('open'); t.setAttribute('aria-expanded', o); });
+    document.addEventListener('click', function (e) { if (!t.contains(e.target) && !l.contains(e.target)) l.classList.remove('open'); });
+  }
+  // "days left" badges anywhere on the site, computed from the visitor's clock
+  var today = new Date(); today.setHours(0, 0, 0, 0);
+  document.querySelectorAll('[data-deadline]').forEach(function (el) {
+    var d = new Date(el.getAttribute('data-deadline') + 'T00:00:00'); if (isNaN(d)) return;
+    var days = Math.round((d - today) / 864e5), cls = days <= 14 ? 'crit' : days <= 45 ? 'warn' : 'ok';
+    el.querySelectorAll('.days, .conf-pill').forEach(function (p) {
+      p.classList.remove('ok', 'warn', 'crit'); p.classList.add(cls);
+      if (p.classList.contains('days')) p.textContent = days < 0 ? 'passed' : days === 0 ? 'today' : days + 'd left';
+      else p.title = days < 0 ? 'passed' : days === 0 ? 'today' : days + ' days left';
     });
-});
+  });
+})();

@@ -1,0 +1,19 @@
+# Research areas on the home and research pages. icon = Font Awesome class.
+- title: Threshold logic on FPGAs
+  icon: fa-microchip
+  text: Native threshold-logic blocks, technology mapping onto LUT6 fabrics, and the break-even point where a TLG block beats conventional clusters.
+- title: Hardware security
+  icon: fa-shield-halved
+  text: Logic locking built on threshold gates (TLGLock) with formal hardness arguments, GNN-resilience evaluation and side-channel analysis.
+- title: ML-driven EDA
+  icon: fa-diagram-project
+  text: Learned cell characterization and GNN-guided mapping that exploit the sampling geometry threshold cells expose.
+- title: Hyperdimensional computing
+  icon: fa-cubes
+  text: Accelerators and built-in self-test for HDC workloads, where wide majority gates map naturally onto threshold logic.
+- title: Chips and SoCs
+  icon: fa-layer-group
+  text: TINKER, a fully-digital threshold-logic BNN inference SoC on SKY130A, from RTL to clean DRC/LVS sign-off.
+- title: Cryogenic circuits
+  icon: fa-snowflake
+  text: Threshold-logic behaviour at cryogenic temperatures for quantum-control and low-noise computing stacks.
