@@ -1,0 +1,50 @@
+# Conference list for /conferences. One entry per line-group; dates are YYYY-MM-DD.
+# Base list adapted from the Chalmers VLSI group's page
+# (https://www.cse.chalmers.se/research/group/vlsi/conference/), plus FPGA venues.
+- {name: "ISTC 2027",               url: "https://2027.istc-conf.org/",            deadline: "2027-04-15", date: "2027-08-23"}
+- {name: "Symp. VLSI Circuits 2027",url: "https://www.vlsisymposium.org/",         deadline: "2027-01-25", date: "2027-06-20"}
+- {name: "FCCM 2027",               url: "https://www.fccm.org/",                  deadline: "",           date: "",           note: "CFP not posted yet; usually mid-January / May"}
+- {name: "VLSI-TSA/DAT 2027",       url: "https://expo.itri.org.tw/2027VLSITSA",   deadline: "2026-11-22", date: "2027-04-12"}
+- {name: "VTS 2027",                url: "https://tttc-vts.org/",                  deadline: "2026-11-20", date: "2027-04-26"}
+- {name: "CICC 2027",               url: "https://www.ieee-cicc.org/",             deadline: "2026-11-16", date: "2027-04-18"}
+- {name: "OFC 2027",                url: "https://www.ofcconference.org/",         deadline: "2026-10-20", date: "2027-03-07"}
+- {name: "ISCAS 2027",              url: "https://2027.ieee-iscas.org/",           deadline: "2026-10-13", date: "2027-06-06"}
+- {name: "FPGA 2027",               url: "https://www.isfpga.org/",                deadline: "2026-10-08", date: "2027-03-14", note: "abstract 2026-10-01"}
+- {name: "SPI 2027",                url: "https://spi-workshop.org/",              deadline: "2026-10-07", date: "2027-05-16"}
+- {name: "ISPD 2027",               url: "https://ispd.cc/",                       deadline: "2026-09-28", date: "2027-03-31"}
+- {name: "DATE 2027",               url: "https://www.date-conference.com/",       deadline: "2026-09-20", date: "2027-03-22"}
+- {name: "ISQED 2027",              url: "https://www.isqed.org/",                 deadline: "2026-09-17", date: "2027-04-08"}
+- {name: "ISSCC 2027",              url: "https://www.isscc.org/",                 deadline: "2026-09-09", date: "2027-02-14"}
+- {name: "DVCon U.S. 2027",         url: "https://dvcon.org/",                     deadline: "2026-09-07", date: "2027-03-01"}
+- {name: "LASCAS 2027",             url: "https://www.ieee-lascas.org/",           deadline: "2026-09-01", date: "2027-02-23"}
+- {name: "NorCAS 2026",             url: "https://events.tuni.fi/norcas/",         deadline: "2026-08-16", date: "2026-10-21"}
+- {name: "VLSID 2027",              url: "https://vlsid.org/",                     deadline: "2026-07-27", date: "2027-01-02"}
+- {name: "ASP-DAC 2027",            url: "https://www.aspdac.com/",                deadline: "2026-07-18", date: "2027-01-25"}
+- {name: "IEDM 2026",               url: "https://www.ieee-iedm.org/",             deadline: "2026-07-16", date: "2026-12-06"}
+- {name: "EPEPS 2026",              url: "https://www.epeps.org/",                 deadline: "2026-06-29", date: "2026-10-18"}
+- {name: "ISOCC 2026",              url: "https://isocc.org/",                     deadline: "2026-06-26", date: "2026-10-11"}
+- {name: "FPT 2026",                url: "https://fpt2026.uark.edu/",              deadline: "2026-06-19", date: "2026-12-07"}
+- {name: "A-SSCC 2026",             url: "https://a-sscc2026.org/",                deadline: "2026-06-03", date: "2026-11-01"}
+- {name: "ICECS 2026",              url: "https://www.icecs2026.gr/",              deadline: "2026-05-25", date: "2026-11-08"}
+- {name: "ICCD 2026",               url: "https://www.iccd-conf.com/",             deadline: "2026-05-22", date: "2026-11-16"}
+- {name: "Asilomar 2026",           url: "https://www.asilomarsscconf.org/",       deadline: "2026-05-01", date: "2026-10-25"}
+- {name: "APCCAS 2026",             url: "https://apccas2026.org/",                deadline: "2026-04-30", date: "2026-10-25"}
+- {name: "VLSI-SoC 2026",           url: "https://vlsi-soc.com/",                  deadline: "2026-04-27", date: "2026-10-11"}
+- {name: "ITC 2026",                url: "https://www.itctestweek.org/",           deadline: "2026-04-24", date: "2026-10-11"}
+- {name: "ECOC 2026",               url: "https://ecoc2026.org/",                  deadline: "2026-04-15", date: "2026-09-20"}
+- {name: "ICCAD 2026",              url: "https://iccad.com/2026",                 deadline: "2026-04-14", date: "2026-11-08"}
+- {name: "IEEE SiPS 2026",          url: "https://sips2026.org/",                  deadline: "2026-04-12", date: "2026-11-01"}
+- {name: "ESSERC 2026",             url: "https://www.esserc2026.org/",            deadline: "2026-04-03", date: "2026-09-07"}
+- {name: "SOCC 2026",               url: "https://www.ieee-socc.org/",             deadline: "2026-04-01", date: "2026-09-30"}
+- {name: "ESWeek 2026",             url: "https://esweek.org/",                    deadline: "2026-03-30", date: "2026-10-04"}
+- {name: "Hot Chips 2026",          url: "https://www.hotchips.org/",              deadline: "2026-03-29", date: "2026-08-23"}
+- {name: "FPL 2026",                url: "https://2026.fpl.org/"  ,                   deadline: "2026-03-27", date: "2026-09-07", note: "abstract 2026-03-20"}
+- {name: "SPPCom 2026",             url: "http://optica.org/PhotonicsOPC",         deadline: "2026-03-24", date: "2026-07-26"}
+- {name: "MWSCAS 2026",             url: "https://mwscas2026.org/",                deadline: "2026-03-16", date: "2026-08-09"}
+- {name: "ISLPED 2026",             url: "https://www.islped.org/2026/",           deadline: "2026-03-09", date: "2026-08-05"}
+- {name: "ASAP 2026",               url: "https://2026.asap-conf.org/",            deadline: "2026-03-03", date: "2026-09-03"}
+- {name: "GLSVLSI 2026",            url: "https://www.glsvlsi.org/",               deadline: "2026-03-02", date: "2026-06-22"}
+- {name: "ISVLSI 2026",             url: "https://www.ieee-isvlsi.org/",           deadline: "2026-02-10", date: "2026-07-07"}
+- {name: "COOL Chips 2026",         url: "https://www.coolchips.org/2026/",        deadline: "2026-02-06", date: "2026-04-15"}
+- {name: "ARITH 2026",              url: "https://www.arith2026.org/",             deadline: "2026-01-30", date: "2026-06-28"}
+- {name: "DAC 2026",                url: "https://dac.com/",                       deadline: "2025-11-18", date: "2026-07-26"}
